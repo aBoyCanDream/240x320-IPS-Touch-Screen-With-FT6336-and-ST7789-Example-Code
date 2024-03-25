@@ -88,7 +88,7 @@ uint16_t monitorRefreshRate = 1000;
 
 void setup(void) {
   Serial.begin(115200);
-  Serial.print(F("Hello! ST77xx TFT Test"));
+  //Serial.print(F("Hello! ST77xx TFT Test"));
 
   //OR use this initializer (uncomment) if using a 2.0" 320x240 TFT:
   tft.init(240, 320);           // Init ST7789 320x240
@@ -106,7 +106,7 @@ void setup(void) {
   Serial.println(ft6336u.read_device_mode()); */
   
   tft.setRotation(2);
-  Serial.println(F("Initialized"));
+  //Serial.println(F("Initialized"));
   tft.fillScreen(ST77XX_BLACK); // Looks like this display has a memory register that holds what was last written to it. Even between uploads! And after being powered off, it displays garbage. So best to clear everything.
   tft.fillRect(0, 80, 120, 80, ST77XX_GREEN);
   tft.fillRect(120, 80, 120, 80, ST77XX_RED);
@@ -130,8 +130,8 @@ void loop() {
       // Lots of the original code from the lib example below. Apparently the chip can handle 2 touch points but haven't gotten that running. You can play around with the other features
 
       //Serial.print("FT6336U TD Status: ");
-      //Serial.println(ft6336u.read_td_status());
-      //Serial.print("FT6336U Touch Event/ID 1: (");
+      //Serial.println(ft6336u.read_td_status()); 
+      //Serial.print("FT6336U Touch Event/ID 1: ("); // Returns 1 when the screen is pressed, otherwise returns 0
       //Serial.print(ft6336u.read_touch1_event()); Serial.print(" / "); Serial.print(ft6336u.read_touch1_id()); Serial.println(")");
       Serial.print("FT6336U Touch Position 1: (");
       uint16_t xPos = ft6336u.read_touch1_x();
@@ -150,7 +150,7 @@ void loop() {
         if (xPos < 240 && yPos < 80) {
           if (millis() - touchLastMillis > debounceDelay) {
           coordinateMode = !coordinateMode;
-          Serial.println(coordinateMode);
+          //Serial.println(coordinateMode);
           touchLastMillis = millis();
           displayColor(0);
           lastColorDisplay = 86;
@@ -239,4 +239,3 @@ void displayXY(uint16_t xPos, uint16_t yPos) {
   tft.print("Y=");
   tft.print(yBuf);
 }
-
