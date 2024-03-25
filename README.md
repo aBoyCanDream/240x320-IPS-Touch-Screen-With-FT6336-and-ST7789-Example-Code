@@ -1,4 +1,4 @@
-Example Code for my test and review of the IPS Touch Screen found here: https://s.click.aliexpress.com/e/_DkVIfkD and on my youtube video found here: 
+Example Code for my test and review of the IPS Touch Screen found here: https://s.click.aliexpress.com/e/_DkVIfkD and on my youtube video found here: https://youtu.be/wwvfMQ4X7hY
 
 You can get the Adafruit libraries on the Arduino IDE. The touch library is found here: https://github.com/aselectroworks/Arduino-FT6336U/issues/6
 
